@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick and Morty
 
-## Getting Started
+## Background and problem
 
-First, run the development server:
+Claudia and her workmates absolutely love the TV show Rick and Morty! They often schedule parties where they just sit and watch the TV show all day long.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Because Claudia is such a big fan, she is always doing research on the characters to make sure she knows everything about them. Currently, she is studying all the human characters in the show.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Since there are so many characters in the show, Claudia finds it difficult to study them on her own, and would really love a web application that makes her studying easier.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Challenge
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Claudia would like you to build a simple React application that will do the following:
 
-## Learn More
+- Display a list of all the **human** characters from Rick and Morty. The list should simply display the name of each of these characters.
+- When a character in the list is clicked, it should display a character profile with the following information:
+  - The **status** of the character that was clicked.
+  - The **origin** of the character that was clicked.
+  - The **location** of the character that was clicked.
+- The list of characters should be paginated.
+- _optional_ An image of the character should be displayed when you click on the character in the list.
+- _optional_ The ability to search the character list by a character name.
+- _optional_ Include the date the character was created in the character profile.
+- _optional_ Anything you want to add which could impress us ;)
 
-To learn more about Next.js, take a look at the following resources:
+## Guide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- An API is already provided for you. It is an open API (no authentication required). The documentation can be found here: <https://rickandmortyapi.com/documentation/>
+  - Please use the **REST API** (NOT the GraphQL API). <https://rickandmortyapi.com/documentation/#rest>
+  - API base URL is <https://rickandmortyapi.com/api>, and has the following important endpoint:
+    - `[GET] /character`
+- It is recommended that you don't build your React application from scratch! Use a toolkit or framework!
+- Typescript is recommended.
+- Writing tests would be amazing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Criteria
 
-## Deploy on Vercel
+Your work will be evaluated on:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Approach to managing/displaying state,
+- Approach to testing the application,
+- Approach to handling API error responses,
+- Code format and style.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- Feel free to use whatever tools and libraries you want, however, please justify why you used them in your project's readme!

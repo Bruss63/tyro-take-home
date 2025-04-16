@@ -1,0 +1,29 @@
+import { atomWithSuspenseQuery } from "jotai-tanstack-query";
+import { z } from "zod";
+import { charactersResponseSchema } from "../schemas/characters";
+
+const BASE_URL = "https://rickandmortyapi.com/api";
+
+export const getCharactersAtom = atomWithSuspenseQuery(() => ({
+  queryKey: ["characters"],
+  queryFn: async () => {
+    const response = await fetch(`${BASE_URL}/character?species=human`);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch characters");
+    }
+
+    const data = await response.json();
+
+    try {
+      return charactersResponseSchema.parse(data);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        console.error("Validation error:", error.errors);
+      } else {
+        console.error("Unexpected error:", error);
+      }
+      throw new Error("Validation failed");
+    }
+  },
+}));
