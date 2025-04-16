@@ -1,8 +1,6 @@
 export default function CharacterListSkeleton() {
-  console.log("skeleton");
-
   return (
-    <div className="flex flex-col gap-4">
+    <div data-testid="character-list-skeleton" className="flex flex-col gap-4">
       {Array.from({ length: 30 }, (_, index) => (
         <div
           key={index}

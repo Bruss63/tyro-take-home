@@ -4,7 +4,7 @@ import CharacterList from "../components/CharacterList/CharacterList";
 import CharacterListSkeleton from "@/components/CharacterList/CharacterListSkeleton";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function List() {
   const params = useSearchParams();
 
   const pageParam = params.get("page");

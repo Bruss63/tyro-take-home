@@ -19,7 +19,7 @@ export default function CharacterList({ page }: CharacterListProps) {
   } = useAtomValue(getCharactersAtom(page));
 
   return (
-    <div className="flex flex-col gap-4">
+    <div data-testid="character-list" className="flex flex-col gap-4">
       {results.map(({ id, name }) => (
         <CharacterCard key={id} name={name} />
       ))}
