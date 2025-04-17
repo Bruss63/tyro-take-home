@@ -5,7 +5,7 @@
 
 ### Next.js
 
-I wanted to use next.js for the built in router for separating the list and profile pages.  This felt like the right design choice as it allows the concerns of the two pages to be separated.  i.e. search logic and pagination logic is only in the list page, and the profile page is only concerned with displaying the profile of a single character.  It also allows the profile page to be extended to show more information about the character in the future without needing to change the list page.
+I wanted to use next.js for the built in router for separating the list and profile pages.  This felt like the right design choice as it allows the concerns of the two pages to be separated.  i.e. search logic and pagination logic is only in the list page, and the profile page is only concerned with displaying the profile of a single character.  It also allows the profile page to be extended to show more information about the character in the future without needing to change the list page.  I also wanted to use the router to store the search query and paginiation state in the uri params.  This allows the user to share the link to the page with the search query and pagination state.
 
 ### Jotai with Tanstack Query
 
