@@ -14,12 +14,9 @@ interface CharacterListProps {
 }
 
 export default function CharacterList({ page, q }: CharacterListProps) {
-  const {
-    data: {
-      results,
-      info: { pages },
-    },
-  } = useAtomValue(getCharactersAtom(useMemo(() => ({ q, page }), [q, page])));
+  const { characters: results, pages } = useAtomValue(
+    getCharactersAtom(useMemo(() => ({ q, page }), [q, page]))
+  );
 
   const [query, setQuery] = useState<string | null>(q);
 
@@ -35,7 +32,7 @@ export default function CharacterList({ page, q }: CharacterListProps) {
     url.searchParams.set("page", "1");
 
     window.history.pushState({}, "", url.toString());
-  }, 500);
+  }, 1000);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();

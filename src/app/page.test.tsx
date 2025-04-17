@@ -16,8 +16,6 @@ describe("List Page", () => {
     await act(async () => {
       render(<List />);
     });
-    <List />;
-    <List />;
 
     expect(
       screen.getByRole("heading", { name: /rick and morty characters/i })
@@ -44,14 +42,11 @@ describe("List Page", () => {
           <HydrateQueries
             queries={[
               [
-                ["characters", null, 2],
-                {
-                  results: [
-                    { id: 1, name: "Rick Sanchez" },
-                    { id: 2, name: "Morty Smith" },
-                  ],
-                  info: { pages: 1 },
-                },
+                ["characters"],
+                [
+                  { id: 1, name: "Rick Sanchez", species: "Human" },
+                  { id: 2, name: "Morty Smith", species: "Human" },
+                ],
               ],
             ]}
           >

@@ -9,7 +9,7 @@ export default function CharacterListSkeleton({
   q,
 }: CharacterListSkeletonProps) {
   return (
-    <div data-testid="character-list-skeleton" className="flex flex-col gap-4">
+    <div data-testid="character-list-skeleton" className="flex flex-col gap-12">
       <div className="relative">
         <input
           type="text"
@@ -21,12 +21,14 @@ export default function CharacterListSkeleton({
         <CgSpinnerTwoAlt className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400 animate-spin" />
       </div>
 
-      {Array.from({ length: 20 }, (_, index) => (
-        <CharacterCardSkeleton
-          key={index}
-          data-testid="character-card-skeleton"
-        />
-      ))}
+      <div className="flex flex-col gap-4">
+        {Array.from({ length: 20 }, (_, index) => (
+          <CharacterCardSkeleton
+            key={index}
+            data-testid="character-card-skeleton"
+          />
+        ))}
+      </div>
     </div>
   );
 }

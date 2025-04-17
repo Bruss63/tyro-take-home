@@ -2,6 +2,7 @@ import { act, render, screen } from "@testing-library/react";
 import CharacterList from "./CharacterList";
 import { HydrateQueries } from "@/state/testUtils";
 import { Provider } from "jotai";
+import { Suspense } from "react";
 
 describe("CharacterList", () => {
   it("renders a list of characters", async () => {
@@ -11,18 +12,17 @@ describe("CharacterList", () => {
           <HydrateQueries
             queries={[
               [
-                ["characters", null, 1],
-                {
-                  results: [
-                    { id: 1, name: "Rick Sanchez" },
-                    { id: 2, name: "Morty Smith" },
-                  ],
-                  info: { pages: 1 },
-                },
+                ["characters"],
+                [
+                  { id: 1, name: "Rick Sanchez", species: "Human" },
+                  { id: 2, name: "Morty Smith", species: "Human" },
+                ],
               ],
             ]}
           >
-            <CharacterList page={1} q={null} />
+            <Suspense>
+              <CharacterList page={1} q={null} />
+            </Suspense>
           </HydrateQueries>
         </Provider>
       );
@@ -40,18 +40,10 @@ describe("CharacterList", () => {
       await act(async () => {
         render(
           <Provider>
-            <HydrateQueries
-              queries={[
-                [
-                  ["characters", "test", 1],
-                  {
-                    results: [],
-                    info: { pages: 1 },
-                  },
-                ],
-              ]}
-            >
-              <CharacterList page={1} q={"test"} />
+            <HydrateQueries queries={[[["characters"], []]]}>
+              <Suspense>
+                <CharacterList page={1} q={null} />
+              </Suspense>
             </HydrateQueries>
           </Provider>
         );
