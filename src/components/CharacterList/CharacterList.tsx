@@ -19,10 +19,12 @@ export default function CharacterList({ page }: CharacterListProps) {
   } = useAtomValue(getCharactersAtom(page));
 
   return (
-    <div data-testid="character-list" className="flex flex-col gap-4">
-      {results.map(({ id, name }) => (
-        <CharacterCard key={id} name={name} />
-      ))}
+    <div data-testid="character-list" className="flex flex-col gap-12">
+      <div className="flex flex-col gap-4">
+        {results.map(({ id, name }) => (
+          <CharacterCard key={id} id={id} name={name} />
+        ))}
+      </div>
 
       <div className="flex items-center justify-center w-full">
         <div className="flex items-center gap-2 flex-wrap justify-center">

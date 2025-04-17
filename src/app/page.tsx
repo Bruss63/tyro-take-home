@@ -12,8 +12,8 @@ export default function List() {
 
   return (
     <div className="flex flex-col items-center h-full px-12 py-20 overflow-x-scroll">
-      <div className="flex flex-col w-full max-w-2xl gap-6">
-        <h1 className="text-4xl font-bold text-white">
+      <div className="flex flex-col w-full max-w-2xl gap-12">
+        <h1 className="text-4xl font-bold text-gray-800">
           Rick and Morty Characters
         </h1>
 

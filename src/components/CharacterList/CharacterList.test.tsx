@@ -27,6 +27,8 @@ describe("CharacterList", () => {
 
     const characterList = screen.getByTestId("character-list");
     expect(characterList).toBeInTheDocument();
-    expect(characterList.children.length).toBe(2);
+
+    const characterCards = screen.getAllByTestId("character-card-name");
+    expect(characterCards).toHaveLength(2);
   });
 });

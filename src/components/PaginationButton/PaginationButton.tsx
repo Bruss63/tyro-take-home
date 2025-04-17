@@ -20,9 +20,9 @@ export default function PaginationButton({
       type="button"
       disabled={disabled}
       className={classNames(
-        "flex items-center justify-center p-2 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 ease-in-out",
-        !selected && "bg-gray-700 hover:bg-gray-600 cursor-pointer",
-        selected && "bg-gray-500 cursor-not-allowed"
+        "flex items-center justify-center p-2 text-gray-800 border border-gray-400 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 ease-in-out",
+        !selected && "bg-white hover:bg-gray-100 cursor-pointer",
+        selected && "bg-[#A3D5FF] cursor-not-allowed"
       )}
       onClick={() => {
         if (disabled || selected) return;
