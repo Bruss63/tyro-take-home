@@ -32,4 +32,9 @@ export const charactersResponseSchema = z.object({
   }),
   results: z.array(characterSchema),
 });
+
 export type CharactersResponse = z.infer<typeof charactersResponseSchema>;
+
+export const characterResponseSchema = characterSchema;
+
+export type CharacterResponse = z.infer<typeof characterResponseSchema>;

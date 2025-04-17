@@ -23,7 +23,7 @@ describe("List Page", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders CharacterList with the correct page prop", async () => {
+  it("renders CharacterList", async () => {
     (useSearchParams as jest.Mock).mockReturnValue({ get: jest.fn(() => "2") });
 
     await act(async () => {
