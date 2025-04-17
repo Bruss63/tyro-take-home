@@ -54,7 +54,7 @@ export default function CharacterList({ page, q }: CharacterListProps) {
           type="text"
           placeholder="Search by character name"
           data-testid="character-list-search"
-          className="w-full p-4 text-xl border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12"
+          className="w-full p-4 text-xl border border-gray-400 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12"
           value={query || ""}
           onChange={handleSearchChange}
         />
