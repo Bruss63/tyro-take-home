@@ -13,6 +13,23 @@ export default function CharacterCardDetailed({
 }: CharacterCardDetailedProps) {
   const { data: character } = useAtomValue(getCharacterAtom(id));
 
+  if (!character) {
+    return (
+      <div
+        data-testid="character-card-detailed-not-found"
+        className={`flex flex-col items-center w-full h-screen gap-4`}
+      >
+        <h2 className="text-4xl font-bold text-center">Character not found</h2>
+        <button
+          onClick={() => window.history.back()}
+          className="mt-4 px-4 py-2 bg-[#6F73D2] text-white rounded cursor-pointer hover:bg-[#5a5dc4] transition-colors duration-200 ease-in-out"
+        >
+          Go back
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div data-testid="character-card-detailed" className="flex flex-col gap-4">
       <h1

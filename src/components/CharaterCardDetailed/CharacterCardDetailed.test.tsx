@@ -52,4 +52,20 @@ describe("CharacterCardDetailed", () => {
       new Date(character.created).toDateString()
     );
   });
+
+  describe("No character found", () => {
+    it("renders the no character found message", () => {
+      render(
+        <Provider>
+          <HydrateQueries queries={[[["character", 999], null]]}>
+            <CharacterCardDetailed id={999} />
+          </HydrateQueries>
+        </Provider>
+      );
+
+      expect(
+        screen.getByTestId("character-card-detailed-not-found")
+      ).toBeInTheDocument();
+    });
+  });
 });

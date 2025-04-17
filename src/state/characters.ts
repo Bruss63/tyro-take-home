@@ -53,6 +53,10 @@ export const getCharacterAtom = atomFamily((id) =>
       const response = await fetch(`${BASE_URL}/character/${id}`);
 
       if (!response.ok) {
+        if (response.status === 404) {
+          return null;
+        }
+
         throw new Error("Failed to fetch character");
       }
 

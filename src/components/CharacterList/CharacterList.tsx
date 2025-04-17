@@ -65,13 +65,26 @@ export default function CharacterList({ page, q }: CharacterListProps) {
       </div>
 
       {results.length === 0 ? (
-        <div className="flex items-center justify-center w-full">
+        <div className="flex flex-col gap-3 items-center justify-center w-full">
           <p
             data-testid="character-list-no-results"
             className="text-2xl text-gray-800"
           >
             No characters found
           </p>
+          <button
+            onClick={() => {
+              const url = new URL(window.location.href);
+              url.searchParams.delete("q");
+              url.searchParams.set("page", "1");
+
+              window.history.pushState({}, "", url.toString());
+              setQuery(null);
+            }}
+            className="mt-4 px-4 py-2 bg-[#6F73D2] text-white rounded cursor-pointer hover:bg-[#5a5dc4] transition-colors duration-200 ease-in-out"
+          >
+            Try again
+          </button>
         </div>
       ) : (
         <>
