@@ -1,47 +1,22 @@
-# Rick and Morty
 
-## Background and problem
+# Rick and Morty Tyro Health Challenge Submission
 
-Claudia and her workmates absolutely love the TV show Rick and Morty! They often schedule parties where they just sit and watch the TV show all day long.
+## Libraries Used
 
-Because Claudia is such a big fan, she is always doing research on the characters to make sure she knows everything about them. Currently, she is studying all the human characters in the show.
+### Next.js
 
-Since there are so many characters in the show, Claudia finds it difficult to study them on her own, and would really love a web application that makes her studying easier.
+I wanted to use next.js for the built in router for separating the list and profile pages.  This felt like the right design choice as it allows the concerns of the two pages to be separated.  i.e. search logic and pagination logic is only in the list page, and the profile page is only concerned with displaying the profile of a single character.  It also allows the profile page to be extended to show more information about the character in the future without needing to change the list page.
 
-## Challenge
+### Jotai with Tanstack Query
 
-Claudia would like you to build a simple React application that will do the following:
+I used jotai for state management as I prefer the API to other state management libraries.  I also used Tanstack Query for data fetching and caching.  I like the API of Tanstack Query and it is a good fit for this project as it allows me to easily fetch the list of characters and the profile of a single character as a suspendabe atom.  It also handles caching and invalidation for me for the most part.
 
-- Display a list of all the **human** characters from Rick and Morty. The list should simply display the name of each of these characters.
-- When a character in the list is clicked, it should display a character profile with the following information:
-  - The **status** of the character that was clicked.
-  - The **origin** of the character that was clicked.
-  - The **location** of the character that was clicked.
-- The list of characters should be paginated.
-- _optional_ An image of the character should be displayed when you click on the character in the list.
-- _optional_ The ability to search the character list by a character name.
-- _optional_ Include the date the character was created in the character profile.
-- _optional_ Anything you want to add which could impress us ;)
+### Zod
 
-## Guide
+I used zod for validation of the types coming from the API.  I wanted to build the pages so that if an unexpected type came from the api, it would fail gracefully.
 
-- An API is already provided for you. It is an open API (no authentication required). The documentation can be found here: <https://rickandmortyapi.com/documentation/>
-  - Please use the **REST API** (NOT the GraphQL API). <https://rickandmortyapi.com/documentation/#rest>
-  - API base URL is <https://rickandmortyapi.com/api>, and has the following important endpoint:
-    - `[GET] /character`
-- It is recommended that you don't build your React application from scratch! Use a toolkit or framework!
-- Typescript is recommended.
-- Writing tests would be amazing.
+## Tools
 
-## Criteria
+### Github Copilot
 
-Your work will be evaluated on:
-
-- Approach to managing/displaying state,
-- Approach to testing the application,
-- Approach to handling API error responses,
-- Code format and style.
-
-## Notes
-
-- Feel free to use whatever tools and libraries you want, however, please justify why you used them in your project's readme!
+I used Github Copilot while building the app.  I primarily use it for autocomplete and searching for relevant info on libraries and APIs.  I also used it for some of the repetitive styling, I would create a general design then extend it across components with the tool.  I also used it for setting up the tests, I would ask it to create a test for a specific component and it would generate the test for me.  I would then modify the test to fit my needs.
