@@ -87,9 +87,7 @@ export const getCharactersAtom = atomFamily(
         pages: Math.ceil(filteredCharacters.length / 20),
       };
     }),
-  (a, b) => {
-    return isEqual(a, b);
-  }
+  isEqual
 );
 
 export const getCharacterAtom = atomFamily((id) =>
