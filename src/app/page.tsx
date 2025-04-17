@@ -1,4 +1,5 @@
 "use client";
+
 import { Suspense } from "react";
 import CharacterList from "../components/CharacterList/CharacterList";
 import CharacterListSkeleton from "@/components/CharacterList/CharacterListSkeleton";

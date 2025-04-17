@@ -5,7 +5,6 @@ import { atomFamily } from "jotai/utils";
 
 const BASE_URL = "https://rickandmortyapi.com/api";
 
-// TODO: review error handling here
 export const getCharactersAtom = atomFamily((page) =>
   atomWithSuspenseQuery(() => ({
     queryKey: ["characters", page],
