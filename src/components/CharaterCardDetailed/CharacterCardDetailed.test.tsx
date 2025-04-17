@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import CharacterCardDetailed from "./CharacterCardDetailed";
 import { HydrateQueries } from "@/state/testUtils";
+import { Provider } from "jotai";
 
 describe("CharacterCardDetailed", () => {
   it("renders character details correctly", () => {
@@ -15,9 +16,11 @@ describe("CharacterCardDetailed", () => {
     };
 
     render(
-      <HydrateQueries queries={[[["character", character.id], character]]}>
-        <CharacterCardDetailed id={character.id} />
-      </HydrateQueries>
+      <Provider>
+        <HydrateQueries queries={[[["character", character.id], character]]}>
+          <CharacterCardDetailed id={character.id} />
+        </HydrateQueries>
+      </Provider>
     );
 
     const characterName = screen.getByTestId("character-card-detailed-name");

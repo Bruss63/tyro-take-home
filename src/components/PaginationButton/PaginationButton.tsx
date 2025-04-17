@@ -4,14 +4,14 @@ import classNames from "classnames";
 
 interface PaginationButtonProps {
   children: React.ReactNode;
-  href: string;
+  page: number;
   selected?: boolean;
   disabled?: boolean;
 }
 
 export default function PaginationButton({
   children,
-  href,
+  page,
   selected,
   disabled,
 }: PaginationButtonProps) {
@@ -27,7 +27,9 @@ export default function PaginationButton({
       onClick={() => {
         if (disabled || selected) return;
 
-        window.location.replace(href);
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page.toString());
+        window.history.pushState({}, "", url.toString());
       }}
     >
       {children}

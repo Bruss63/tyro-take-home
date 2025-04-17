@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import List from "./page";
 import { act } from "@testing-library/react";
 import { HydrateQueries } from "../state/testUtils";
+import { Provider } from "jotai";
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
@@ -24,15 +25,39 @@ describe("List Page", () => {
   });
 
   it("renders CharacterList", async () => {
-    (useSearchParams as jest.Mock).mockReturnValue({ get: jest.fn(() => "2") });
+    (useSearchParams as jest.Mock).mockReturnValue({
+      get: jest.fn((key) => {
+        const paramMap: {
+          [key: string]: string | null;
+        } = {
+          page: "2",
+          q: null,
+        };
+
+        return paramMap[key];
+      }),
+    });
 
     await act(async () => {
       render(
-        <HydrateQueries
-          queries={[[["characters", 2], { results: [], info: { pages: 1 } }]]}
-        >
-          <List />
-        </HydrateQueries>
+        <Provider>
+          <HydrateQueries
+            queries={[
+              [
+                ["characters", null, 2],
+                {
+                  results: [
+                    { id: 1, name: "Rick Sanchez" },
+                    { id: 2, name: "Morty Smith" },
+                  ],
+                  info: { pages: 1 },
+                },
+              ],
+            ]}
+          >
+            <List />
+          </HydrateQueries>
+        </Provider>
       );
     });
 
