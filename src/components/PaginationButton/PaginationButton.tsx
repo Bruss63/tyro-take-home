@@ -30,6 +30,10 @@ export default function PaginationButton({
         const url = new URL(window.location.href);
         url.searchParams.set("page", page.toString());
         window.history.pushState({}, "", url.toString());
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }}
     >
       {children}
